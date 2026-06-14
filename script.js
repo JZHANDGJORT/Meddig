@@ -1,5 +1,24 @@
 // ===============================
-// 🥠 LYCKOKAKA (perspektiv)
+// 🔗 ID
+// ===============================
+const params = new URLSearchParams(window.location.search);
+const deviceId = params.get("id") || "lyckokaka01";
+
+
+// ===============================
+// ⏰ TID PÅ DYGNET
+// ===============================
+function getTimeOfDay() {
+    const hour = new Date().getHours();
+
+    if (hour < 10) return "morning";
+    if (hour < 18) return "day";
+    return "evening";
+}
+
+
+// ===============================
+// 🥠 LYCKOKAKA (oförändrad kärna)
 // ===============================
 const wisdomQuotes = [
     "Varje liten handling formar framtiden.",
@@ -11,7 +30,6 @@ const wisdomQuotes = [
     "Små glädjeämnen räknas också.",
     "Något gott kan fortfarande hända idag.",
     "Framtiden är inte färdigskriven.",
-    "Det finns fler möjligheter än du ser just nu.",
     "Du behöver inte se hela vägen för att ta nästa steg.",
     "Ljuset kommer tillbaka, även efter långa vintrar.",
     "Allt börjar med något litet."
@@ -19,47 +37,34 @@ const wisdomQuotes = [
 
 
 // ===============================
-// 🪨 LUGNSTEN (trygghet / närvaro)
+// 🪨 LUGNSTEN (uppdelad i dygnsrytm)
 // ===============================
-const calmQuotes = [
-    // grundtrygghet
-    "Du behöver inte lösa allt just nu.",
-    "Låt axlarna sjunka en aning.",
-    "Du är trygg här och nu.",
-    "Allt behöver inte bli klart idag.",
-    "Du får finnas precis som du är.",
-    "Du behöver inte skynda.",
-    "En sak i taget räcker.",
-    "Det är inte bråttom.",
+const calmMorningQuotes = [
+    "En ny dag. Du behöver inte ha bråttom in i den.",
+    "Börja mjukt.",
+    "Det räcker att ta första steget.",
+    "Du behöver inte lösa hela dagen nu."
+];
 
-    // social / prestationsoro (din riktning)
+const calmDayQuotes = [
     "Du behöver inte prestera här.",
-    "Du får vara lite obekväm just nu.",
-    "Det här ögonblicket behöver inte bli perfekt.",
-    "Du måste inte säga rätt saker.",
+    "Du får ta det i din egen takt.",
+    "Du behöver inte säga rätt saker.",
+    "Det räcker att du är här."
+];
 
-    // återkomst / relation
-    "Du är här igen.",
-    "Samma stund. Samma plats.",
-    "Du behöver inte göra mer än att vara här.",
-    "Vi fortsätter här."
+const calmEveningQuotes = [
+    "Dagen är redan tillräcklig.",
+    "Du behöver inte lösa något mer idag.",
+    "Låt det som varit få vila nu.",
+    "Du får släppa taget om resten.",
+    "Du är klar för idag, även om allt inte blev klart."
 ];
 
 
 // ===============================
-// 🔗 ID
+// 📊 RELATION (Lugnsten)
 // ===============================
-const params = new URLSearchParams(window.location.search);
-const deviceId = params.get("id") || "lyckokaka01";
-
-
-// ===============================
-// 🧠 LUGNSTENENS PERSONLIGHET
-// ===============================
-let activeQuotes;
-let subtitleText = "";
-
-// 📊 Lugnstenens “relation över tid”
 function getVisitCount() {
     const key = `${deviceId}-visits`;
     let count = localStorage.getItem(key);
@@ -73,16 +78,27 @@ function getVisitCount() {
 
 
 // ===============================
-// 🎯 VÄLJ TYP + PERSONLIGHET
+// 🎯 VÄLJ AKTIVT INNEHÅLL
 // ===============================
-let visitCount = 0;
+let activeQuotes = [];
+let subtitleText = "";
 
+// Lugnsten-logik
 if (deviceId.startsWith("lugnsten")) {
 
-    activeQuotes = calmQuotes;
+    const timeOfDay = getTimeOfDay();
+    const visitCount = getVisitCount();
 
-    visitCount = getVisitCount();
+    // välj rätt “läge”
+    if (timeOfDay === "morning") {
+        activeQuotes = calmMorningQuotes;
+    } else if (timeOfDay === "evening") {
+        activeQuotes = calmEveningQuotes;
+    } else {
+        activeQuotes = calmDayQuotes;
+    }
 
+    // subtil “relation över tid”
     if (visitCount === 1) {
         subtitleText = "En liten trygghet i fickan";
     } else if (visitCount < 5) {
@@ -99,7 +115,7 @@ if (deviceId.startsWith("lugnsten")) {
 
 
 // ===============================
-// 📅 DAGLIGT CACHAT CITAT
+// 📅 DAGLIGT SYSTEM
 // ===============================
 function getDate() {
     return new Date().toISOString().split("T")[0];

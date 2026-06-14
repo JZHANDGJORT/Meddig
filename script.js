@@ -47,7 +47,7 @@ if (deviceId.startsWith("lugnsten")) {
     subtitleText = "🌿 Lugnsten · Några lugna ord att vila i";
 } else {
     activeQuotes = wisdomQuotes;
-    subtitleText = "🥠 Lyckokaka · Ett perspektiv för dagen";
+    subtitleText = "Lyckokaka · En tanke att bära med sig";
 }
 
 // 📅 Dagens datum

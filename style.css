@@ -1,14 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
 
+/* Grund */
 body {
     font-family: Arial, sans-serif;
 
     background:
-        radial-gradient(
-            circle at top left,
-            rgba(180, 210, 180, 0.10),
-            transparent 35%
-        ),
         linear-gradient(
             180deg,
             #ffffff 0%,
@@ -21,13 +17,56 @@ body {
 
     height: 100vh;
     margin: 0;
+
+    position: relative;
+    overflow: hidden;
 }
 
-/* container */
+/* 🌿 Lugn “andande” bakgrund */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(180, 210, 180, 0.10),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(200, 220, 200, 0.08),
+            transparent 45%
+        );
+
+    animation: slowBreath 20s ease-in-out infinite;
+}
+
+@keyframes slowBreath {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* innehåll ovanpå bakgrunden */
 .container {
     text-align: center;
     padding: 30px;
     max-width: 600px;
+    position: relative;
+    z-index: 1;
 }
 
 /* diskret rubrik */
@@ -40,7 +79,7 @@ h1 {
     margin-bottom: 60px;
 }
 
-/* 🌿 Citatet (nu mer “andas”) */
+/* 🌿 citat */
 .quote {
     font-family: 'Lora', serif;
     font-size: 1.7rem;
@@ -54,8 +93,10 @@ h1 {
     transform: translateY(12px);
 
     transition:
-        opacity 0.9s ease-in-out,
-        transform 0.9s ease-in-out;
+        opacity 1s ease-in-out,
+        transform 1s ease-in-out;
+
+    animation: textFloat 14s ease-in-out infinite;
 }
 
 /* när citatet visas */
@@ -64,7 +105,20 @@ h1 {
     transform: translateY(0);
 }
 
-/* 🌿 diskret knapp i hörnet */
+/* väldigt subtil “svävning” */
+@keyframes textFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 🌿 knapp */
 button {
     position: fixed;
     bottom: 25px;

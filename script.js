@@ -10,7 +10,7 @@ const quotes = [
     "Det som tar tid blir ofta bättre.",
     "Du behöver inte förstå allt idag.",
     "Det finns styrka i att vänta.",
-    "Det enkla är ofta det svåraste.",
+    "Det enkla är ofta det svåra.",
     "Det som växer långsamt får djupa rötter.",
     "Du behöver inte vinna varje strid.",
     "En kopp te kan vara nog.",
@@ -35,7 +35,6 @@ const quotes = [
     "Det vanliga är ofta det värdefulla.",
     "Nya kapitel börjar ofta tyst.",
     "Det finns mer framför dig än bakom dig.",
-    "Små steg räknas.",
     "Allt behöver inte blomma samtidigt.",
     "Något gott kan fortfarande hända idag.",
     "Det är inte för sent.",
@@ -50,45 +49,37 @@ const quotes = [
     "Ibland räcker det att fortsätta."
 ];
 
-// Pool som minskar
-let availableQuotes = [...quotes];
-
-// För att undvika samma direkt vid reload
-let lastQuote = localStorage.getItem("lastQuote") || null;
+let lastQuote = localStorage.getItem("lastQuote");
 
 function newQuote() {
     const quoteEl = document.getElementById("quote");
 
-    // återställ om tom
-    if (availableQuotes.length === 0) {
-        availableQuotes = [...quotes];
-    }
-
+    // välj nytt citat (undvik direkt repetition)
     let quote;
-    let attempts = 0;
 
-    // undvik direkt repetition
     do {
-        const randomIndex = Math.floor(Math.random() * availableQuotes.length);
-        quote = availableQuotes[randomIndex];
-        attempts++;
-    } while (quote === lastQuote && attempts < 10);
+        quote = quotes[Math.floor(Math.random() * quotes.length)];
+    } while (quote === lastQuote && quotes.length > 1);
 
-    // ta bort vald
-    availableQuotes = availableQuotes.filter(q => q !== quote);
-
-    // spara senaste
     lastQuote = quote;
     localStorage.setItem("lastQuote", quote);
 
-    // fade animation reset
+    // 🌬️ mjuk fade-out (andas ut)
     quoteEl.classList.remove("show");
 
+    // 🌿 paus = reflektion
     setTimeout(() => {
         quoteEl.textContent = quote;
-        quoteEl.classList.add("show");
-    }, 150);
+
+        // liten extra “stilla sekund”
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                quoteEl.classList.add("show");
+            }, 120);
+        });
+
+    }, 650);
 }
 
-// start
+// 🌿 starta sidan med första citatet
 newQuote();

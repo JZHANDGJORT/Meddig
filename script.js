@@ -104,7 +104,7 @@ if (deviceId.startsWith("lugnsten")) {
     } else if (visitCount < 5) {
         subtitleText = "En liten trygghet i fickan";
     } else {
-        subtitleText = "En liten trygghet i fickan · vi har setts förr";
+        subtitleText = "En liten trygghet i fickan";
     }
 
 } else {

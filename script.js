@@ -3,11 +3,8 @@
 // ===============================
 const params = new URLSearchParams(window.location.search);
 const deviceId = params.get("id") || "lyckokaka01";
-
 const isLugnsten = deviceId.startsWith("lugnsten");
 const isHjarta = deviceId.startsWith("hjarta");
-
-
 // ===============================
 // 🥠 LYCKOKAKA
 // ===============================
@@ -24,8 +21,6 @@ const wisdomQuotes = [
     "Ljuset kommer tillbaka, även efter långa vintrar.",
     "Det du gör nu spelar roll, även om det känns litet."
 ];
-
-
 // ===============================
 // ❤️ HJÄRTA
 // ===============================
@@ -41,187 +36,159 @@ const heartQuotes = [
     "Du behöver inte vara perfekt för att vara värdefull.",
     "Det är okej att vara snäll mot dig själv."
 ];
-
-
 // ===============================
 // 🪨 LUGNSTEN
 // ===============================
 const calmMorningQuotes = [
     "Du får börja mjukt idag.",
     "Det räcker att ta första steget.",
-    "Du behöver inte ha bråttom."
+    "Du behöver inte ha bråttom.",
+    "En ny dag behöver inte börja perfekt.",
+    "Du får ta dagen som den kommer."
 ];
-
 const calmDayQuotes = [
     "Du behöver inte prestera här.",
     "Det är okej att vara lite obekväm.",
-    "Du får bara vara."
+    "Du får bara vara.",
+    "Du behöver inte säga rätt saker.",
+    "Det räcker att du är här.",
+    "Du får ta det i din egen takt."
 ];
-
 const calmEveningQuotes = [
     "Dagen är redan tillräcklig.",
     "Du kan släppa taget om resten.",
-    "Du är klar för idag."
+    "Du är klar för idag.",
+    "Det som inte blev gjort får vänta.",
+    "Du behöver inte bära med dig allt vidare.",
+    "Låt dagen få vila nu."
 ];
-
-
 // ===============================
 // ⏰ DYGN
 // ===============================
 function getTimeOfDay() {
     const hour = new Date().getHours();
-
     if (hour < 10) return "morning";
     if (hour < 18) return "day";
     return "evening";
 }
-
-
 // ===============================
 // 🔧 HELPERS
 // ===============================
 function random(list) {
     return list[Math.floor(Math.random() * list.length)];
 }
-
-
 // ===============================
 // 🪨 LUGNSTEN
 // ===============================
 function getLullQuote() {
-
     const time = getTimeOfDay();
-
     if (time === "morning") {
         return random(calmMorningQuotes);
     }
-
     if (time === "evening") {
         return random(calmEveningQuotes);
     }
-
     return random(calmDayQuotes);
 }
-
-
 // ===============================
-// 📅 DAGLIGT
+// 📅 DAGLIGT SYSTEM
 // ===============================
 function getDate() {
     return new Date().toISOString().split("T")[0];
 }
-
 function dailyKey() {
     return `${deviceId}-${getDate()}`;
 }
-
 function getDailyQuote() {
-
     const saved = localStorage.getItem(dailyKey());
-
     if (saved) {
         return saved;
     }
-
     let quote;
-
     if (isHjarta) {
         quote = random(heartQuotes);
     } else {
         quote = random(wisdomQuotes);
     }
-
-    localStorage.setItem(dailyKey(), quote);
-
+    localStorage.setItem(
+        dailyKey(),
+        quote
+    );
     return quote;
 }
-
-
 // ===============================
 // ✨ UI
 // ===============================
 function updateQuote(text) {
-
-    const quote = document.getElementById("quote");
-
+    const quote =
+        document.getElementById("quote");
     quote.classList.remove("show");
-
     setTimeout(() => {
         quote.textContent = text;
         quote.classList.add("show");
     }, 200);
 }
-
-
 // ===============================
 // 🔁 KNAPP
 // ===============================
 function newQuote() {
-
     if (isLugnsten) {
-
-        updateQuote(getLullQuote());
-
+        updateQuote(
+            getLullQuote()
+        );
     } else if (isHjarta) {
-
         updateQuote(
             random(heartQuotes)
         );
-
     } else {
-
         updateQuote(
             random(wisdomQuotes)
         );
     }
 }
-
-
 // ===============================
 // 🚀 START
 // ===============================
 window.addEventListener("DOMContentLoaded", () => {
-
-    const subtitle = document.getElementById("subtitle");
-
+    const subtitle =
+        document.getElementById("subtitle");
     const luckBtn =
         document.getElementById("luckButton");
-
     const lullBtn =
         document.getElementById("lullButton");
-
     if (isLugnsten) {
-
-        document.body.classList.add("lugnsten");
-
+        document.body.classList.add(
+            "lugnsten"
+        );
         subtitle.textContent =
             "En liten trygghet i fickan";
-
         luckBtn.style.display = "none";
         lullBtn.style.display = "flex";
-
-        updateQuote(getLullQuote());
-
+        updateQuote(
+            getLullQuote()
+        );
     } else if (isHjarta) {
-
-        document.body.classList.add("hjarta");
-
+        document.body.classList.add(
+            "hjarta"
+        );
         subtitle.textContent =
             "Några vänliga ord till dig själv";
-
+        luckBtn.textContent =
+            "Ett ord till";
         luckBtn.style.display = "block";
         lullBtn.style.display = "none";
-
-        updateQuote(getDailyQuote());
-
+        updateQuote(
+            getDailyQuote()
+        );
     } else {
-
         subtitle.textContent =
             "Ord för stunden";
-
+        luckBtn.textContent =
+            "Ett annat perspektiv";
         luckBtn.style.display = "block";
         lullBtn.style.display = "none";
-
-        updateQuote(getDailyQuote());
+        updateQuote(
+            getDailyQuote()
+        );
     }
 });

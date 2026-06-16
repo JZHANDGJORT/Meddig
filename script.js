@@ -324,6 +324,7 @@ const calmEveningQuotes = [
 // ===============================
 function getTimeOfDay() {
     const hour = new Date().getHours();
+    if (hour < 6) return "evening";
     if (hour < 10) return "morning";
     if (hour < 18) return "day";
     return "evening";

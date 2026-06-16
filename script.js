@@ -330,30 +330,11 @@ function getTimeOfDay() {
 }
 
 // ===============================
-// 🔧 HELPERS (ALT 3)
+// 🔧 HELPERS
 // ===============================
-function random(list, biasList = null) {
-    // 70% huvudlista, 20% bias, 10% övergång
-    const r = Math.random();
-
-    if (biasList && r > 0.7 && r <= 0.9 && biasList.length) {
-        return biasList[Math.floor(Math.random() * biasList.length)];
-    }
-
-    if (biasList && r > 0.9 && calmTransitionQuotes.length) {
-        return calmTransitionQuotes[Math.floor(Math.random() * calmTransitionQuotes.length)];
-    }
-
+function random(list) {
     return list[Math.floor(Math.random() * list.length)];
 }
-
-// liten “mjuk övergångslista”
-const calmTransitionQuotes = [
-    "Du är mitt i dagen, och det räcker.",
-    "Allt behöver inte kännas tydligt just nu.",
-    "Du får bara fortsätta mjukt.",
-    "Det är okej att vara mellan saker.",
-    "Du behöver inte skynda mellan lägen."
 ];
 
 // ===============================

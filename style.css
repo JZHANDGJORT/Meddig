@@ -152,18 +152,18 @@ h1 {
     transform: translateY(0);
 }
 /* =========================
-    FRÅN FREYJA
+   FRÅN FREYJA
 ========================= */
 body.freyja h1 {
-    color: #d48b00;
+    color: #b8860b;   /* varm honungsguld */
 }
 
 body.freyja .subtitle {
-    color: #c18a00;
+    color: #7f927f;   /* salviagrön */
 }
 
 body.freyja .quote {
-    color: #6b4d00;
+    color: #495b4b;   /* samma mörkgröna som Med dig */
 }
 body.freyja #luckButton {
     background: rgba(255,255,255,0.9);

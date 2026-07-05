@@ -404,7 +404,85 @@ const freyjaQuotes = [
 "Om ingen sagt det idag...\nTack för att du bryr dig.",
 
 "En liten hälsning.\nJag hoppas att du är lika snäll mot dig själv som mot andra."
+"Jag tänkte på en sak...\nDet finns människor som känner sig lite modigare efter att ha mött dig.",
 
+"Jag ville bara säga...\nTack för att du ser det lilla i det stora.",
+
+"Om ingen sagt det idag...\nDu gör det lättare för andra att vara sig själva.",
+
+"En liten hälsning.\nDu behöver inte märka din egen betydelse för att den ska finnas.",
+
+"Jag hoppas att du vet...\nEtt vänligt bemötande kan förändra mer än vi någonsin får veta.",
+
+"Förresten...\nDu gör fler dagar lite ljusare än du tror.",
+
+"Jag tänkte på en sak...\nIbland räcker det att någon tror på en. Tack för att du gör det.",
+
+"Jag ville bara säga...\nDu ger andra mod, ofta utan att märka det.",
+
+"Om ingen sagt det idag...\nDet är fint att just du finns.",
+
+"En liten hälsning.\nTålamod är en gåva. Tack för att du delar med dig av ditt.",
+
+"Jag hoppas att du vet...\nDet finns människor som känner sig sedda tack vare dig.",
+
+"Förresten...\nDet du gör med omtanke lever ofta kvar längst.",
+
+"Jag tänkte på en sak...\nEtt lugnt bemötande kan bli ett tryggt minne.",
+
+"Jag ville bara säga...\nDu behöver inte göra mer för att vara uppskattad.",
+
+"Om ingen sagt det idag...\nNågon är glad över att just du finns i deras vardag.",
+
+"En liten hälsning.\nDet är fint hur du får andra att känna sig välkomna.",
+
+"Jag hoppas att du vet...\nBarn behöver ibland bara en vuxen som verkligen ser dem.",
+
+"Förresten...\nDet är sällan perfektion som stannar kvar. Det är värmen.",
+
+"Jag tänkte på en sak...\nDin omtanke märks, även när den är tyst.",
+
+"Jag ville bara säga...\nTack för alla gånger du valt vänlighet.",
+
+"Om ingen sagt det idag...\nDu betyder mer än du får höra.",
+
+"En liten hälsning.\nDu hjälper människor att känna att de duger.",
+
+"Jag hoppas att du vet...\nSmå handlingar kan bli stora minnen.",
+
+"Förresten...\nDet finns barn som kommer minnas hur trygga de kände sig hos dig.",
+
+"Jag tänkte på en sak...\nDet är fint att världen har människor som bryr sig på riktigt.",
+
+"Jag ville bara säga...\nDu får människor att känna att de räknas.",
+
+"Om ingen sagt det idag...\nDin vänlighet gör skillnad varje dag.",
+
+"En liten hälsning.\nDu behöver inte bära allt själv.",
+
+"Jag hoppas att du vet...\nDet är okej att själv behöva omtanke ibland.",
+
+"Förresten...\nJag hoppas att någon får dig att känna dig lika uppskattad som du får andra att känna sig.",
+
+"Jag tänkte på en sak...\nDu skapar lugn omkring dig.",
+
+"Jag ville bara säga...\nTack för att du fortsätter, även de dagar som känns lite tyngre.",
+
+"Om ingen sagt det idag...\nDu är en viktig del av många människors berättelser.",
+
+"En liten hälsning.\nNågon kommer en dag att berätta om dig med värme.",
+
+"Jag hoppas att du vet...\nDet är ofta de små orden som stannar kvar längst.",
+
+"Förresten...\nDu lämnar fina avtryck utan att försöka.",
+
+"Jag tänkte på en sak...\nAtt bli bemött med vänlighet kan förändra hur resten av dagen känns.",
+
+"Jag ville bara säga...\nTack för att du gör plats för andra.",
+
+"Om ingen sagt det idag...\nDu räcker precis som du är.",
+
+"En liten hälsning.\nJag hoppas att du tar med dig något fint från den här dagen."
 ];
 
 // ===============================

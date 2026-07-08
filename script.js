@@ -8,6 +8,7 @@ const isLugnsten = deviceId.startsWith("lugnsten");
 const isHjarta = deviceId.startsWith("hjarta");
 const isSmahander = deviceId.startsWith("smahander");
 const isMamma = deviceId.startsWith("mamma");
+const isLanda = deviceId.startsWith("landa");
 
 // ===============================
 // 🥠 LYCKOKAKA

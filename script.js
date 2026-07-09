@@ -553,7 +553,18 @@ const landaHopeQuotes = [
     "Det är okej att ta en minut i taget.",
     "Det finns mer än den här stunden."
 ];
-
+const landaSafetyQuotes = [
+    "Du får sänka axlarna lite.",
+    "Det är okej att andas ut.",
+    "Du behöver inte vara på din vakt hela tiden.",
+    "Det finns inget du måste bevisa just nu.",
+    "Du får vila en stund.",
+    "Du behöver inte bära allt ensam.",
+    "Lugn får ta plats här.",
+    "Du behöver inte göra något just nu.",
+    "Det finns inget krav på att vara stark.",
+    "Den här stunden får vara stilla."
+];
 // ===============================
 // ⏰ DYGN
 // ===============================

@@ -529,6 +529,18 @@ const mammaQuotes = [
     "Låt blicken vila på något stilla.",
     "Du behöver inte tänka färdigt alla tankar."
 ];
+const landaKindnessQuotes = [
+    "Du behöver inte kämpa mot dig själv.",
+    "Du får vara trött.",
+    "Du behöver inte prestera just nu.",
+    "Din kropp försöker hjälpa dig.",
+    "Det är okej att vila.",
+    "Du får vara människa.",
+    "Du behöver inte skynda dig igenom det här.",
+    "Du behöver inte ha kontroll över allt.",
+    "Det räcker att du fortsätter andas.",
+    "Du får möta dig själv med lite mer vänlighet."
+];
 
 
 // ===============================

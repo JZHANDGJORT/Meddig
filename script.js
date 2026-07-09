@@ -676,7 +676,7 @@ function newQuote() {
         updateQuote(random(smahanderQuotes));
 
  } else if (isLanda) {
-    updateQuote(random(landaQuotes));
+    updateQuote(getLandaQuote());
         
 } else if (isMamma) {
     updateQuote(random(mammaQuotes));

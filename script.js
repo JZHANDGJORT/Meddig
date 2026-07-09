@@ -756,7 +756,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     lullBtn.style.display = "none";
 
-    updateQuote(random(landaQuotes));
+    updateQuote(getLandaQuote());
 }
 
     else {
